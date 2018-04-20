@@ -25,24 +25,19 @@ public class EditerCollaborateurController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
 			ServletException, IOException {
 			
-			String matricule = req.getParameter("matricule");
-			String titre = req.getParameter("titre");
 			String nom = req.getParameter("nom");
 			String prenom = req.getParameter("prenom");
-			if(matricule == null || nom == null || prenom == null) {
+			String dateNaissance = req.getParameter("naissance");
+			String adresse = req.getParameter("adresse");
+			String numSecurite = req.getParameter("securite");
+			if(nom == null || prenom == null || dateNaissance == null || adresse == null || numSecurite == null) {
 				resp.sendError(400, "Un de vos paramètre est manquant");
 			}
-			else{
-				resp.setContentType("text/html");			
-				
-				resp.getWriter().write("<h1>Edition de collaborateur</h1>"
-						+ "<ul>"
-						+ "<li>Matricule :"+ matricule + ",</li>"
-						+ "<li>Titre :"+ titre + ",</li>"
-						+ "<li>Nom :"+ nom + ",</li>"
-						+ "<li>Prenom :"+ prenom + ".</li>"
-						+ "</ul>");
-				resp.setStatus(201);
-			}				
+
+			resp.setStatus(201);
+		
+		
+		
+		this.getServletContext().getRequestDispatcher("/views/collab/collaborateurs.jsp").forward(req, resp);
 	}
 }

@@ -9,12 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ListerCollaborateursController extends HttpServlet {
-	@Override
+
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
-		req.setAttribute("listeNoms", Arrays.asList("Robert", "Jean", "Hugues"));
-		req.getRequestDispatcher("/views/collab/collaborateurs.jsp")
-		.forward(req, resp);
-
+		//req.setAttribute("listeNoms", Arrays.asList("Robert", "Jean", "Hugues"));
+		req.getRequestDispatcher("/views/collab/collaborateurs.jsp").forward(req, resp);		
 	}
 }
